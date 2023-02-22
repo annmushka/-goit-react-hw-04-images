@@ -22,8 +22,7 @@ export const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [query, setQuery] = useState('');
   const [page, setPage] = useState(1);
-  const [total, setTotal] = useState(0);
-  const [per_page, setPer_page] = useState(12);
+  const [per_page] = useState(12);
 
   // async componentDidUpdate(prevProps, prevState) {
   //   const { query, per_page, page } = this.state;
@@ -51,7 +50,6 @@ export const App = () => {
       try {
         const response = await getImageService(query, page, per_page);
         setImages(prevImages => [...prevImages, ...response.hits]);
-        setTotal(response.total);
         setStatus('fulfilled');
       } catch (error) {
         setStatus('rejected');
@@ -81,6 +79,7 @@ export const App = () => {
       {isLoading && <Loader />}
       <ImageGallery images={images} />
       {images.length > 0 && !isLoading && <Button onClick={handleLoadMore} />}
+      {status === "error" && "error"}
     </div>
   );
 };
