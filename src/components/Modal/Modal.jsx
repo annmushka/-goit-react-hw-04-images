@@ -5,12 +5,6 @@ import PropTypes from 'prop-types';
 export const Modal = props => {
   const { id, largeImageURL, tags, closeModal } = props;
 
-  const onClickEsc = event => {
-    if (event.code === 'Escape') {
-      closeModal();
-    }
-  };
-
   const onClickBackDrop = event => {
     if (event.target === event.currentTarget) {
       closeModal();
@@ -21,12 +15,17 @@ export const Modal = props => {
   //   window.addEventListener('keydown', this.onClickEsc);
   // }
   useEffect(() => {
+    const onClickEsc = event => {
+      if (event.code === 'Escape') {
+        closeModal();
+      }
+    };
     window.addEventListener('keydown', onClickEsc);
     // }
     return () => {
       window.removeEventListener('keydown', onClickEsc);
     };
-  }, [onClickEsc]);
+  }, [closeModal]);
   // componentWillUnmount() {
   //   window.removeEventListener('keydown', this.onClickEsc);
   // }
