@@ -18,12 +18,12 @@ export const App = () => {
   //   per_page: 12,
 
   const [images, setImages] = useState([]);
-  const [status, setStatus] = useState('idle');
+  const [setStatus] = useState('idle');
   const [isLoading, setIsLoading] = useState(false);
   const [query, setQuery] = useState('');
   const [page, setPage] = useState(1);
-  const [total, setTotal] = useState(0);
-  const [per_page, setPer_page] = useState(12);
+  const [setTotal] = useState(0);
+  const [per_page] = useState(12);
 
   // async componentDidUpdate(prevProps, prevState) {
   //   const { query, per_page, page } = this.state;

@@ -26,7 +26,7 @@ export const Modal = props => {
     return () => {
       window.removeEventListener('keydown', onClickEsc);
     };
-  }, []);
+  }, [onClickEsc]);
   // componentWillUnmount() {
   //   window.removeEventListener('keydown', this.onClickEsc);
   // }
